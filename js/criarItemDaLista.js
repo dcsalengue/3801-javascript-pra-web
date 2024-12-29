@@ -1,5 +1,7 @@
 import { geraTimestampDoItemComprado } from "./geraTimestampDoItemComprado.js";
 import { verificarListaComprados } from "./verificarListaComprados.js";
+import { excluirItem } from "./excluirItem.js";
+import { editarItem } from "./editarItem.js";
 
 const listaComprados = document.getElementById("lista-comprados");
 const listaDeCompras = document.getElementById("lista-de-compras");
@@ -24,20 +26,20 @@ export function criarItemDaLista(item) {
     checkboxLabel.setAttribute("for", checkboxInput.id);
 
     checkboxLabel.addEventListener("click", function (evento) {
-            const checkboxInput = evento.currentTarget.querySelector(".input-checkbox");
-            const checkboxCustomizado = evento.currentTarget.querySelector(".checkbox-customizado");
-            const itemTitulo = evento.currentTarget.closest("li").querySelector("#item-titulo")
-            if (checkboxInput.checked) {
-                    checkboxCustomizado.classList.add("checked");
-                    itemTitulo.style.textDecoration = "line-through";
-                    listaComprados.appendChild(itemDaLista)
-            } else {
-                    checkboxCustomizado.classList.remove("checked");
-                    itemTitulo.style.textDecoration = "none";
-                    listaDeCompras.appendChild(itemDaLista)
-            }
+        const checkboxInput = evento.currentTarget.querySelector(".input-checkbox");
+        const checkboxCustomizado = evento.currentTarget.querySelector(".checkbox-customizado");
+        const itemTitulo = evento.currentTarget.closest("li").querySelector("#item-titulo")
+        if (checkboxInput.checked) {
+            checkboxCustomizado.classList.add("checked");
+            itemTitulo.style.textDecoration = "line-through";
+            listaComprados.appendChild(itemDaLista)
+        } else {
+            checkboxCustomizado.classList.remove("checked");
+            itemTitulo.style.textDecoration = "none";
+            listaDeCompras.appendChild(itemDaLista)
+        }
 
-             verificarListaComprados(listaComprados)
+        verificarListaComprados(listaComprados)
     })
 
     const checkboxCustomizado = document.createElement("div");
@@ -62,6 +64,11 @@ export function criarItemDaLista(item) {
     imagemRemover.src = "img/delete.svg";
     imagemRemover.alt = "Remover";
 
+    botaoRemover.addEventListener("click", () => {
+        excluirItem(itemDaLista)
+    })
+
+
     botaoRemover.appendChild(imagemRemover);
     containerBotoes.appendChild(botaoRemover);
 
@@ -71,6 +78,10 @@ export function criarItemDaLista(item) {
     const imagemEditar = document.createElement("img");
     imagemEditar.src = "img/edit.svg";
     imagemEditar.alt = "Editar";
+
+    botaoEditar.addEventListener("click", () => {
+        editarItem(itemDaLista)
+    })
 
     botaoEditar.appendChild(imagemEditar);
     containerBotoes.appendChild(botaoEditar);
