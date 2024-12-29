@@ -89,6 +89,11 @@ p {
     border: none;
 }
 
+.button-item:hover{
+    background-color: var(--cor-secundaria);
+    cursor: pointer;
+}
+
 form {
     display: flex;
     flex-direction: column;
@@ -152,6 +157,10 @@ ul {
     background-color: transparent;
 }
 
+.item-lista-button:hover{
+    cursor: pointer;
+}
 .container-lista {
     width: 100%;
 }
+

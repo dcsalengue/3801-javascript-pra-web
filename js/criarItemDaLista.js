@@ -64,6 +64,13 @@ export function criarItemDaLista(item) {
     imagemRemover.src = "img/delete.svg";
     imagemRemover.alt = "Remover";
 
+    botaoRemover.addEventListener("mouseover", () => {
+        imagemRemover.src = "img/delete-hover.svg";
+    })
+    botaoRemover.addEventListener("mouseout", () => {
+        imagemRemover.src = "img/delete.svg";
+    })
+
     botaoRemover.addEventListener("click", () => {
         excluirItem(itemDaLista)
     })
@@ -76,8 +83,17 @@ export function criarItemDaLista(item) {
     botaoEditar.classList.add("item-lista-button")
 
     const imagemEditar = document.createElement("img");
+    imagemEditar.id = "icone-editar"
     imagemEditar.src = "img/edit.svg";
     imagemEditar.alt = "Editar";
+
+    botaoEditar.addEventListener("mouseover", () => {
+        imagemEditar.src = "img/edit-hover.svg";
+    })
+
+    botaoEditar.addEventListener("mouseout", () => {
+        imagemEditar.src = "img/edit.svg";
+    })
 
     botaoEditar.addEventListener("click", () => {
         editarItem(itemDaLista)
