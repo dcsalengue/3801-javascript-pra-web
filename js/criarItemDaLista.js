@@ -1,3 +1,6 @@
+import { geraTimestampDoItemComprado } from "./geraTimestampDoItemComprado.js";
+import { verificarListaComprados } from "./verificarListaComprados.js";
+
 const listaComprados = document.getElementById("lista-comprados");
 const listaDeCompras = document.getElementById("lista-de-compras");
 let contador = 0;
@@ -75,12 +78,9 @@ export function criarItemDaLista(item) {
     containerItemLista.appendChild(containerNomeDoItem);
     containerItemLista.appendChild(containerBotoes);
 
-    const itemData = document.createElement("p");
-    itemData.innerText = `${new Date().toLocaleDateString("pt-BR", { weekday: "long" })} (${new Date().toLocaleDateString()}) às ${new Date().toLocaleTimeString("pt-BR", { hour: "numeric", minute: "numeric" })}`;
-    itemData.classList.add("texto-data");
 
     itemDaLista.appendChild(containerItemLista);
-    itemDaLista.appendChild(itemData);
+    itemDaLista.appendChild(geraTimestampDoItemComprado());
 
     return itemDaLista;
 }
