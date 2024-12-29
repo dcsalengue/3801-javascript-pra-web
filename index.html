@@ -17,43 +17,27 @@
     <main>
         <img src="./img/bag.png" alt="sacola de compras">
         <form>
-            <input id="input-item" type="text" placeholder="Digite o item que deseja adicionar"></input>
+            <input class="input-item" id="input-item" type="text"
+                placeholder="Digite o item que deseja adicionar"></input>
             <button class="button-item" id="adicionar-item">Salvar item</button>
         </form>
 
-
-
-
-        <ul id="lista-de-compras">
+        <div class="container-lista">
             <h2>Lista de compras</h2>
+            <p id="mensagem-lista-vazia" style="display: block">Sua lista está vazia. Adicione itens a ela para não esquecer nada na próxima compra!</p>
+            <hr>
+
+            <ul id="lista-de-compras">
+            </ul>
+
+            <h2>Comprado</h2>
             <hr />
-            <li>
-                <div class="item-lista-container">
-                    <div class="container-nome-compra">
-                        <div class="checkbox-container">
-                            <label for="checkbox-1">
-                                <input type="checkbox" class="checkbox-input" id="checkbox-1" />
-                                <div class="checkbox-customizado checked"></div>
-                            </label>
-                        </div>
-                        <p>Ração de gato</p>
-                    </div>
-                    <div>
-                        <button class="item-lista-button">
-                            <img src="./img/delete.svg" alt="remover">
-                        </button>
-                        <button class="item-lista-button">
-                            <img src="./img/edit.svg" alt="editar">
-                        </button>
-                    </div>
-                </div>
-                <p class="item-lista-texto">Segunda-feira (31/10/2022) às 08:30</p>
+            <ul id="lista-comprados">
 
-            </li>
-        </ul>
-
+            </ul>
+        </div>
     </main>
-    <script src="scripts.js"></script>
+    <script src="scripts.js" type="module"></script>
 </body>
 
 </html>
